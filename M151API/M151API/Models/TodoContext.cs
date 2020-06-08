@@ -12,6 +12,11 @@ namespace M151API.Models
             : base(options)
         {
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(
+                @"Server=(localdb)\mssqllocaldb;Database=Todo;Integrated Security=True");
+        }
 
         public DbSet<TodoItem> TodoItems { get; set; }
 
